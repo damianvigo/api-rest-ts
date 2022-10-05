@@ -14,8 +14,11 @@ readdirSync(PATH_ROUTER).filter((fileName) => {
   if (cleanName !== 'index') {
     import(`./${cleanName}`).then((moduleRouter) => {
       console.log(`Loading route... /${cleanName}`);
+      // console.log(moduleRouter);
       router.use(`/${cleanName}`, moduleRouter.router);
     });
+    /*  const importDynamic = await import(`./${cleanName}`);
+    router.use(`/${cleanName}`, importDynamic.router); */
   }
 });
 

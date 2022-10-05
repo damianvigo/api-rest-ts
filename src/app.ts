@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(morgan('dev'));
 app.use(cors());
+app.use(express.json());
 app.use(router);
 db().then(() => console.log('connect to MongoDB'));
 app.listen(PORT, () => console.log(`listening on port: ${PORT}`));
